@@ -1,5 +1,5 @@
 class Storage{
-    #items;
+    #items
     constructor(items) {
         this.#items = items
     }
@@ -14,13 +14,15 @@ class Storage{
 
     removeItem(itemToRemove) {
         let indexObjForRemove = this.#items.indexOf(itemToRemove)
-        this.#items.splice(indexObjForRemove, 1)
+        if (indexObjForRemove != -1){
+            this.#items.splice(indexObjForRemove, 1)
+        }
     }
 }
 
-const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
-storage.addItem("Droid");
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-storage.removeItem("Prolonger");
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"])
+console.log(storage.getItems()) // ["Nanitoids", "Prolonger", "Antigravitator"]
+storage.addItem("Droid")
+console.log(storage.getItems()) // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage.removeItem("Prolonger")
+console.log(storage.getItems()) // ["Nanitoids", "Antigravitator", "Droid"]
